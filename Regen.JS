@@ -3,11 +3,14 @@ const grid = document.querySelector("#grid");
 const rows = grid.rows;
 
 const genbtn = document.createElement("button");
+const proc = document.createElement("h2");
+proc.innerHTML = "proceeding ...";
 genbtn.innerHTML = "generate";
 genbtn.addEventListener("click", getData);
+document.body.appendChild(proc);
 document.body.appendChild(genbtn);
 getData();
-alert("proceding ...");
+alert("proceeding ...");
  function createGrid(){
   for (let i = 0; i < 9; i++) {
     const row = document.createElement("tr");
