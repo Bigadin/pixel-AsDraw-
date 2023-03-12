@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 
 $conn = mysqli_connect("localhost", "root", "", "colors");
 
-$query = "SELECT raw, col, colorHex FROM color_table_clone";
+$query = "SELECT raw, col, colorHex FROM color_table";
 $result = mysqli_query($conn, $query);
 
 $colors = array();

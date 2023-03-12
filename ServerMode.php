@@ -7,7 +7,7 @@ header('Access-Control-Allow-Origin: *');
 
     $data = json_decode(file_get_contents('php://input'), true);    
 
-    $conn = mysqli_connect("localhost", $data["username"], $data["password"], "colors");
+    $conn = mysqli_connect("localhost", "root", "", "colors");
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
   }
@@ -17,7 +17,7 @@ header('Access-Control-Allow-Origin: *');
       $col = $color_data["col"];
       $color = $color_data["color"];
      
-      $query = "INSERT INTO color_table_clone (raw,col,colorHex) VALUES ($row, $col, '$color')";
+      $query = "INSERT INTO color_table (raw,col,colorHex) VALUES ($row, $col, '$color')";
       $result = mysqli_query($conn, $query);
   
       $count--;

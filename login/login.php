@@ -15,12 +15,16 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-
-    $sql = "SELECT * FROM mysql.user WHERE User='$username'";
-    $result = $conn->query($sql);
+    
+    $stmt = $conn->prepare("SELECT * FROM mysql.user WHERE User = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    // $sql = "SELECT * FROM mysql.user WHERE User='$username'";
+    // $result = $conn->query($sql);
     if($result->num_rows == 0){
                 // Generate a random password hash
-        //$hash = password_hash($password, PASSWORD_DEFAULT);
+        $hash = password_hash($password, PASSWORD_DEFAULT);
 
         // Create a new user in the database
         // Create a new user in the database and grant privileges
@@ -38,6 +42,7 @@
         $url = 'http://localhost/pixel/Structure.html';
         $html = file_get_contents($url);
         echo $html;
+        
     }
     header("Location: ../Structure.html?username=$username&password=$password");
 

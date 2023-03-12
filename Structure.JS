@@ -29,7 +29,7 @@ sendBtn.classList.add("add-drawing-btn");
 box.appendChild(sendBtn);
 box.appendChild(wallBtn);
 box.appendChild(clear);
-//document.body.appendChild(deletBtn);
+document.body.appendChild(deletBtn);
 
 //regenerate the color
 
@@ -49,7 +49,7 @@ function DeleteData(){
   if (confirm("Are you sure you want to delete all columns?")) {
     // make an AJAX request to the server to delete the columns
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost/pixel/delete_colums_test.php", true);
+    xhr.open("GET", "https://11b6-105-99-59-27.eu.ngrok.io/pixel/delete_colums_test.php", true);
     xhr.send();
 
     xhr.onreadystatechange = function() {
@@ -85,7 +85,7 @@ const password = params.get('password');
 console.log(username);
 
 const data = { username: username, password: password, colors: colors };
-xhr.open("POST","https://d3fd-105-101-73-36.eu.ngrok.io/pixel/ServerMode.php", true);
+xhr.open("POST","https://11b6-105-99-59-27.eu.ngrok.io/pixel/ServerMode.php", true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.onreadystatechange = function() {
   if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -103,7 +103,7 @@ setTimeout(function() {
 
 wallBtn.addEventListener("click", function() {
   // Redirigez l'utilisateur vers la nouvelle URL
-  window.location.href = "https://d3fd-105-101-73-36.eu.ngrok.io/pixel/Regen.html";
+  window.location.href = "https://11b6-105-99-59-27.eu.ngrok.io/pixel/Regen.html";
 });
 
 

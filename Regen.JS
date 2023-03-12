@@ -55,6 +55,6 @@ function getData() {
           }
       }
   };
-  xhr.open("GET", "https://d3fd-105-101-73-36.eu.ngrok.io/pixel/getElementOfDB.php", true);
+  xhr.open("GET", "https://11b6-105-99-59-27.eu.ngrok.io/pixel/getElementOfDB.php", true);
   xhr.send();
 }
